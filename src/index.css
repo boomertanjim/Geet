@@ -15,12 +15,6 @@
   --font-text: "Manjari", sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   @apply bg-bg text-text font-text;
 }
