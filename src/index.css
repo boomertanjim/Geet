@@ -47,3 +47,32 @@ body {
 .volumeSlider::-moz-range-thumb:hover {
   @apply scale-125;
 }
+
+.playbackSlider {
+  @apply appearance-none w-80 h-1 rounded-full cursor-pointer;
+  background: linear-gradient(
+    to right,
+    var(--color-accent) 0%,
+    var(--color-accent) var(--value),
+    var(--color-textgrey) var(--value),
+    var(--color-textgrey) 100%
+  );
+}
+
+.playbackSlider::-webkit-slider-thumb {
+  @apply appearance-none w-4 h-4 rounded-full cursor-pointer bg-accent;
+  transition: transform 150ms ease;
+}
+
+.playbackSlider::-webkit-slider-thumb:hover {
+  @apply scale-125;
+}
+
+.playbackSlider::-moz-range-thumb {
+  @apply appearance-none w-4 h-4 rounded-full cursor-pointer bg-accent;
+  transition: transform 150ms ease;
+}
+
+.playbackSlider::-moz-range-thumb:hover {
+  @apply scale-125;
+}
