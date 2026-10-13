@@ -1,5 +1,29 @@
 const Playlists = () => {
-  return <div>Playlists</div>;
+  return (
+    <div className="p-7 flex flex-col gap-4">
+      <h1 className="text-2xl">Playlists</h1>
+      <div className="w-32 h-48 hover:bg-hover duration-150 rounded-sm flex flex-col gap-2.5 items-center">
+        <div className="w-25.5 h-25.5 bg-accent rounded-2xl mt-3 flex justify-center items-center">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 25 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.6734 2.66891L12.4 3.67156L13.1266 2.66891C14.3375 0.992969 16.2847 0 18.353 0C21.9131 0 24.8 2.88688 24.8 6.44703V6.57297C24.8 12.0077 18.0236 18.3191 14.4877 21.017C13.887 21.4723 13.1508 21.7 12.4 21.7C11.6492 21.7 10.9081 21.4772 10.3123 21.017C6.77641 18.3191 0 12.0077 0 6.57297V6.44703C0 2.88688 2.88688 0 6.44703 0C8.51531 0 10.4625 0.992969 11.6734 2.66891Z"
+              fill="#281100"
+            />
+          </svg>
+        </div>
+        <div className="w-23">
+          <p className="text-[22px] font-bold">Playlist</p>
+          <p className="text-[14px]">0 songs</p>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Playlists;

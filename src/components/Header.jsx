@@ -1,7 +1,14 @@
 import { useState } from "react";
 
 const Header = () => {
-  const buttons = ["Home", "Playlists", "Folders", "Albums", "Artists"];
+  const buttons = [
+    "Home",
+    "Search",
+    "Playlists",
+    "Folders",
+    "Albums",
+    "Artists",
+  ];
   const [current, setCurrent] = useState(0);
   return (
     <div className="flex items-center justify-between px-3 w-full h-15">

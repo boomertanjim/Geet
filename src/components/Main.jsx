@@ -8,7 +8,7 @@ const Main = () => {
         <h1>Current Queue</h1>
       </div>
       <div className="col-span-6">
-        <Home />
+        {/* <Home /> */}
         <Playlists />
       </div>
     </div>
