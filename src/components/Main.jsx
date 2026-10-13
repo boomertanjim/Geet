@@ -1,5 +1,6 @@
 import Home from "./Home";
-import Playlists from "./Playlists";
+// import Playlists from "./Playlists";
+// import Folders from "./Folders";
 
 const Main = () => {
   return (
@@ -8,8 +9,9 @@ const Main = () => {
         <h1>Current Queue</h1>
       </div>
       <div className="col-span-6">
-        {/* <Home /> */}
-        <Playlists />
+        <Home />
+        {/* <Playlists /> */}
+        {/* <Folders /> */}
       </div>
     </div>
   );
