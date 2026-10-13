@@ -1,4 +1,5 @@
 import Home from "./Home";
+import Playlists from "./Playlists";
 
 const Main = () => {
   return (
@@ -8,6 +9,7 @@ const Main = () => {
       </div>
       <div className="col-span-6">
         <Home />
+        <Playlists />
       </div>
     </div>
   );
