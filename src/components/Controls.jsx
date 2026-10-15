@@ -140,7 +140,7 @@ const Controls = () => {
         </div>
       </div>
       <div className="col-span-2 flex justify-end items-center">
-        <img src="/volume.svg" alt="volume slider" className="w-7 mr-2" />
+        <img src="/volume.svg" alt="volume slider" className="w-5 mr-3" />
         <input
           type="range"
           min={0}
