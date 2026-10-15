@@ -134,6 +134,7 @@ const Controls = () => {
             className="playbackSlider"
             style={{
               "--value": `${playback}%`,
+              "--multiplier": playback,
             }}
           />
         </div>
