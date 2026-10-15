@@ -12,6 +12,8 @@ function createWindow() {
   });
 
   win.loadURL("http://localhost:5173");
+
+  win.setMenuBarVisibility(false);
 }
 
 app.on("ready", createWindow);
