@@ -1,5 +1,5 @@
-import HomeMusicCard from "./HomeMusicCard";
-import HomePlaylistCard from "./HomePlaylistCard";
+import HomeMusicCard from "../cards/HomeMusicCard";
+import HomePlaylistCard from "../cards/HomePlaylistCard";
 
 const Home = () => {
   return (

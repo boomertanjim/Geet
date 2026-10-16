@@ -1,9 +1,9 @@
-import Home from "./Home";
-import Search from "./Search";
-import Playlists from "./Playlists";
-import Folders from "./Folders";
-import Albums from "./Albums";
-import Artists from "./Artists";
+import Home from "./tabs/Home";
+import Search from "./tabs/Search";
+import Playlists from "./tabs/Playlists";
+import Folders from "./tabs/Folders";
+import Albums from "./tabs/Albums";
+import Artists from "./tabs/Artists";
 
 const Main = ({ current }) => {
   const tabs = [Home, Search, Playlists, Folders, Albums, Artists];
