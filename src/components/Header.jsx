@@ -34,19 +34,19 @@ const Header = ({ current, setCurrent }) => {
       <div className="h-full flex items-center justify-center [app-region:no-drag]">
         <div
           className="hover:bg-hover h-full w-15 flex justify-center items-center duration-75"
-          onClick={() => window.windowControls.minimize()}
+          onClick={() => window.windowControls?.minimize()}
         >
           <div className="bg-textgrey w-4 h-0.5 rounded-full"></div>
         </div>
         <div
           className="hover:bg-hover h-full w-15 flex justify-center items-center duration-75"
-          onClick={window.windowControls.toggleMaximize}
+          onClick={window.windowControls?.toggleMaximize}
         >
           <img className="w-4 mb-0.5" src="/resize.svg" alt="None" />
         </div>
         <div
           className="hover:bg-hover h-full w-15 flex justify-center items-center duration-75"
-          onClick={window.windowControls.close}
+          onClick={window.windowControls?.close}
         >
           <img className="w-6 mb-0.5" src="/cross.svg" alt="None" />
         </div>

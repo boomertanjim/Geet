@@ -1,7 +1,7 @@
 const Playlists = () => {
   return (
     <div className="p-7 flex flex-col gap-4">
-      <h1 className="text-2xl">Playlists</h1>
+      <h1 className="text-2xl font-bold">Playlists</h1>
       <div className="w-32 h-48 hover:bg-hover duration-150 rounded-sm flex flex-col gap-2.5 items-center">
         <div className="w-25.5 h-25.5 bg-accent rounded-2xl mt-3 flex justify-center items-center">
           <svg
@@ -18,8 +18,8 @@ const Playlists = () => {
           </svg>
         </div>
         <div className="w-23">
-          <p className="text-[22px] font-bold">Playlist</p>
-          <p className="text-[14px]">0 songs</p>
+          <p className="text-[22px]">Playlist</p>
+          <p className="text-[14px] font-light">0 songs</p>
         </div>
       </div>
     </div>
