@@ -19,6 +19,10 @@ body {
   @apply bg-bg text-text font-text;
 }
 
+input:focus {
+  outline: none;
+}
+
 .volumeSlider {
   @apply appearance-none w-30 h-1 rounded-full cursor-pointer;
   background: linear-gradient(
