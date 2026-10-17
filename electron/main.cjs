@@ -1,6 +1,8 @@
 const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 const fs = require("node:fs/promises");
 const path = require("node:path");
+const { parseFile } = require("music-metadata");
+const { inspect } = require("node:util");
 
 const isDev = !app.isPackaged;
 
@@ -89,6 +91,13 @@ ipcMain.handle("folder:prompt", async (event) => {
       name: song.name,
       path: path.join(folderPath, song.name),
     }));
+});
+
+ipcMain.handle("find-meta-data", async (event, songs) => {
+  const filePath = songs[0].path;
+  const metaData = await parseFile(filePath);
+
+  return inspect(metaData, { showHidden: false, depth: null });
 });
 
 app.whenReady().then(async () => {

@@ -1,10 +1,8 @@
+// import { parse } from "node:path";
 import HomeMusicCard from "../cards/HomeMusicCard";
 import HomePlaylistCard from "../cards/HomePlaylistCard";
 
-const Home = ({ songs }) => {
-  if (songs.length != 0) {
-    console.log("Songs received by Home:", songs);
-  }
+const Home = () => {
   return (
     <div className="p-7 flex flex-col gap-4">
       <h1 className="text-2xl font-bold">Saved Playlists</h1>
@@ -33,10 +31,6 @@ const Home = ({ songs }) => {
       </div>
       <div>
         <HomeMusicCard />
-        <ul>
-          {songs &&
-            songs.map((key, i) => <li key={key.path || i}>{key.name}</li>)}
-        </ul>
       </div>
     </div>
   );
