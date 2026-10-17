@@ -4,8 +4,6 @@ const Folders = ({ setSongs }) => {
       const songs = await window.electronAPI.folderPrompt();
       console.log("Songs returned from Electron:", songs);
       setSongs(songs);
-      const metaData = await window.electronAPI.findMetaData(songs);
-      console.log(metaData);
     } catch (error) {
       console.log("Failed: ", error);
     }
