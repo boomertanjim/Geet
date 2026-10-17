@@ -1,5 +1,8 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
-const path = require("path");
+const { app, BrowserWindow, ipcMain, dialog } = require("electron");
+const fs = require("node:fs/promises");
+const path = require("node:path");
+
+const isDev = !app.isPackaged;
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -20,6 +23,15 @@ function createWindow() {
   win.loadURL("http://localhost:5173");
 
   win.setMenuBarVisibility(false);
+
+  if (isDev) {
+    win.webContents.once("dom-ready", () => {
+      win.webContents.openDevTools();
+      setTimeout(() => {
+        win.webContents.reload();
+      }, 500);
+    });
+  }
 }
 
 ipcMain.on("window:minimize", (event) => {
@@ -47,6 +59,49 @@ ipcMain.handle("window:is-maximized", (event) => {
   return BrowserWindow.fromWebContents(event.sender)?.isMaximized() ?? false;
 });
 
-app.whenReady().then(() => {
+ipcMain.handle("folder:prompt", async (event) => {
+  const win = BrowserWindow.fromWebContents(event.sender);
+
+  const r = await dialog.showOpenDialog(win, {
+    title: "Select Folder",
+    properties: ["openDirectory"],
+  });
+
+  if (r.canceled || r.filePaths.length == 0) {
+    return [];
+  }
+
+  const folderPath = r.filePaths[0];
+
+  const songs = await fs.readdir(folderPath, {
+    withFileTypes: true,
+  });
+
+  return songs
+    .filter(
+      (song) =>
+        song.isFile() &&
+        [".flac", ".mp3", ".wav", ".ogg", ".m4a"].includes(
+          path.extname(song.name),
+        ),
+    )
+    .map((song) => ({
+      name: song.name,
+      path: path.join(folderPath, song.name),
+    }));
+});
+
+app.whenReady().then(async () => {
+  if (isDev) {
+    try {
+      const {
+        default: installExtension,
+        REACT_DEVELOPER_TOOLS,
+      } = require("electron-devtools-installer");
+      const name = await installExtension(REACT_DEVELOPER_TOOLS);
+    } catch (e) {
+      console.log("ERROR: ", e);
+    }
+  }
   createWindow();
 });

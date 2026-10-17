@@ -21,12 +21,14 @@ const Header = ({ current, setCurrent }) => {
               i == current ? "bg-hover" : "bg-transparent"
             }`}
             onClick={() => setCurrent(i)}
+            key={val}
           >
             <p className="mt-4 px-5 text-xl/tight">{val}</p>
             <div
               className={`w-full h-1 mt-1.5 rounded-3xl ${
                 i == current ? "bg-accent" : "bg-transparent"
               }`}
+              key={val}
             ></div>
           </div>
         ))}

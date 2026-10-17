@@ -6,3 +6,7 @@ contextBridge.exposeInMainWorld("windowControls", {
   close: () => ipcRenderer.send("window:close"),
   isMaximized: () => ipcRenderer.invoke("window:is-maximized"),
 });
+
+contextBridge.exposeInMainWorld("electronAPI", {
+  folderPrompt: () => ipcRenderer.invoke("folder:prompt"),
+});

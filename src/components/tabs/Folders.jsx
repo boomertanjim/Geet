@@ -1,10 +1,22 @@
-const Folders = () => {
+const Folders = ({ setSongs }) => {
+  const handleSongs = async () => {
+    try {
+      const songs = await window.electronAPI.folderPrompt();
+      console.log("Songs returned from Electron:", songs);
+      setSongs(songs);
+    } catch (error) {
+      console.log("Failed: ", error);
+    }
+  };
   return (
     <div className="p-7 flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <p className="text-2xl/none font-bold pt-2">Music Folders</p>
         <div>
-          <div className="group px-2 py-1 flex gap-2 items-center border-textgrey hover:border-accent border-4 rounded-3xl duration-75 cursor-pointer">
+          <div
+            className="group px-2 py-1 flex gap-2 items-center border-textgrey hover:border-accent border-4 rounded-3xl duration-75 cursor-pointer"
+            onClick={handleSongs}
+          >
             <svg
               width="16"
               viewBox="0 0 43 43"
@@ -15,9 +27,9 @@ const Folders = () => {
               <path
                 d="M3.04169 21.2917H39.5417M21.2917 3.04169V39.5417"
                 stroke="currentColor"
-                stroke-width="6.08333"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="6.08333"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
             <p className="text-text text-sm pt-0.5 group-hover:text-text">
